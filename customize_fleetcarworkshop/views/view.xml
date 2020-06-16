@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<!--    _________________________________________________________________-->
+    <record id="car_workshop_worksheet_inherit_form" model="ir.ui.view">
+        <field name="name">car.workshop_worksheet_inherit_form</field>
+        <field name="model">car.workshop</field>
+        <field name="inherit_id" ref="fleet_car_workshop.worksheet_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vehicle_id']" position="before">
+                <field name="x_time_in"/>
+            </xpath>
+            <xpath expr="//field[@name='date_deadline']" position="before">
+                <field name="x_time_out"/>
+            </xpath>
+        </field>
+    </record>
+<!--    _________________________________________________________________-->
+
+
+<!--&lt;!&ndash;    __________________________________________________________________&ndash;&gt;-->
+
+<!--&lt;!&ndash;To Inherit search view &ndash;&gt; &lt;!&ndash;Inherit quotations search view&ndash;&gt;-->
+<!--    <record id="view_sale_quotation_inherit_search" model="ir.ui.view">-->
+<!--        <field name="name">sale.order.search.expand</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//search" position="inside">-->
+<!--          &lt;!&ndash; This field will show up on the quick search &ndash;&gt;-->
+<!--                <field name="order_line" string="Serial Number" filter_domain="[('order_line.x_serialnumber', 'ilike', self)]"/>-->
+<!--                <field name="x_filenumber"/> &lt;!&ndash;string="File Number" filter_domain="=['x_filenumber', 'ilike',self)]"&ndash;&gt;-->
+<!--            </xpath>-->
+<!--      </field>-->
+<!--    </record>-->
+<!--&lt;!&ndash;    ____________________________________________________________________________&ndash;&gt;-->
+    <record id="car_workshop_worksheet_inherit_tree" model="ir.ui.view">
+        <field name="name">car.workshop_worksheet_inherit_tree</field>
+        <field name="model">car.workshop</field>
+        <field name="inherit_id" ref="fleet_car_workshop.worksheet_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="x_time_in"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="x_time_out"/>
+            </xpath>
+        </field>
+    </record>
+<!--&lt;!&ndash;inheriting Search views in sales order&ndash;&gt;-->
+<!--    <record id="view_sale_Order_inherit_search" model="ir.ui.view">-->
+<!--        <field name="name">sale.order.search.expand</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="inherit_id" ref="sale.view_sales_order_filter"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//search" position="inside">-->
+<!--          &lt;!&ndash; This field will show up on the quick search &ndash;&gt;-->
+<!--                <field name="order_line" string="Serial Number" filter_domain="[('order_line.x_serialnumber', 'ilike', self)]"/>-->
+<!--                <field name="x_filenumber"/> &lt;!&ndash;string="File Number" filter_domain="=['x_filenumber', 'ilike',self)]"&ndash;&gt;-->
+<!--            </xpath>-->
+<!--      </field>-->
+<!--    </record>-->
+
+</odoo>
+
+<!-- -->
