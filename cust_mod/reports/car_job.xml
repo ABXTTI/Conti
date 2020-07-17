@@ -15,10 +15,12 @@
             <t t-foreach="docs" t-as="o">
 <!--                <t t-call="report.internal_layout">-->
                 <div class="row">
-                    <div class="col-xs-12">
-                        <t t-call="report.external_layout_header"/>
-                        <t t-call="report.external_layout_footer"/>
-                    </div>
+                    <div class="col-xs-12 footer" style="height:30%">
+                            <img src="cust_mod/static/src/img/footer.jpeg" width="100%" height="50px"/>
+                        </div>
+                        <div class="col-xs-12 header" style="height:30%">
+                            <img src="cust_mod/static/src/img/header.jpeg" width="100%" height="100px"/>
+                        </div>
                 </div>
                 <h1>Car Services</h1>
                     <div class="page">

@@ -47,7 +47,9 @@
                             <div class="col-xs-3 col-xs-offset-3">
                                 <p>
                                         <span t-foreach="o.line_ids" t-as="line">
+                                            <t t-if="line.debit">
                                                 <span><strong>Payment</strong></span><span t-field="line.debit"/>
+                                            </t>
                                         </span>
                                 </p>
                             </div>
@@ -86,6 +88,7 @@
                                             </th>
                                         </tr>
                                          <t t-foreach="o.line_ids" t-as="line">
+                                             <t t-if="line.debit">
                                         <tr>
                                             <td>
                                                 <p t-field="line.date"/>
@@ -94,9 +97,11 @@
                                                 <p t-field= "line.ref"/>
                                             </td>
                                             <td>
-                                                <p t-field="line.credit"/>
+                                                    <p t-field="line.debit"/>
+
                                             </td>
                                         </tr>
+                                             </t>
                                         </t>
                                     </tbody>
                                 </table>
