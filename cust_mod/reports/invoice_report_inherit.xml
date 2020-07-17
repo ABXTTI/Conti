@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="report_invoice_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@class='row mt32 mb32']" position="after">
+                <div t-if="(o.state == 'paid')" style="position:absolute;text-align:center;z-index:-1;border‌​:0;opacity:0.1;
+                        paddi‌​ng-top:200px; padding-left:200px; margin-top:300px; margin-left:150px ">
+                    <img src="cust_mod/static/src/img/paid.png" width="300px" height="100px"/>
+                    <p t-field="o.payments_widget"/>
+                </div>
+        </xpath>
+        <xpath expr="//div[@class='page']" position="after">
+            <div class="row">
+                <div class="col-xs-5">
+                    <p>test</p>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report id="report_receipt_sheet"
+                string="Reciept"
+                model="account.move"
+                report_type="qweb-html"
+                name="cust_mod.report_receipt"
+                file="cust_mod.report_receipt"/>
+    </data>
+</odoo>

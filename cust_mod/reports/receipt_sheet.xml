@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_receipt">
+            <t t-call="report.html_container">
+                <!--<div class="row">
+                    <div class="col-xs-12">
+                        <t t-call="report.external_layout_header"/>
+                        <t t-call="report.external_layout_footer"/>
+                    </div>
+                </div>-->
+                <t t-foreach="docs" t-as="o">
+                    <div class="oe_structure"/>
+                    <div class="page">
+                        <div>
+                            <div class="col-xs-12 text-center">
+                                <p>Payment Receipt</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p><strong>HomeWorld Management</strong></p>
+                                <p><strong>DD:02087403785 Whatsapp:07438492477</strong></p>
+                                <p><strong>Email: info@homeworldmanagement.co.uk</strong></p>
+                                <p><strong>Feedback: www.homeworldmanagement.co.uk</strong></p>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:20px">
+                            <div class="col-xs-6">
+                                <p><strong>Received From:</strong></p>
+                                <p t-field="o.partner_id"
+                                                 t-options='{"widget":"contact","fields":["name","address"],"no_marker":true}'/>
+                            </div>
+                        </div>
+                        <!--<div class="row">
+                            <div class="col-xs-6">
+                                <h3>
+                                    <p t-field="o.name"/>
+                                </h3>
+                            </div>
+                        </div>-->
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <p>
+                                    <span><strong>Date Received</strong></span><span style="margin-left:50px" t-field="o.date"/>
+                                </p>
+                            </div>
+                            <div class="col-xs-3 col-xs-offset-3">
+                                <p>
+                                        <span t-foreach="o.line_ids" t-as="line">
+                                                <span><strong>Payment</strong></span><span t-field="line.debit"/>
+                                        </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <p>
+                                    <span><strong>Payment Method</strong></span><span style="margin-left:70px" t-field="o.journal_id"/>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <p>
+                                    <span><strong>Check/Ref.no.</strong></span><span t-field="o.ref"/>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <p><strong>Invoice Paid</strong></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <table class="table table-condensed">
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                Date
+                                            </th>
+                                            <th>
+                                                Number
+                                            </th>
+                                            <th>
+                                                Amount Applied
+                                            </th>
+                                        </tr>
+                                         <t t-foreach="o.line_ids" t-as="line">
+                                        <tr>
+                                            <td>
+                                                <p t-field="line.date"/>
+                                            </td>
+                                            <td>
+                                                <p t-field= "line.ref"/>
+                                            </td>
+                                            <td>
+                                                <p t-field="line.credit"/>
+                                            </td>
+                                        </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+    </template>
+</odoo>

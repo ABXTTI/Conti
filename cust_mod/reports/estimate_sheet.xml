@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_estimate">
+            <t t-call="report.html_container">
+
+                <t t-foreach="docs" t-as="o">
+    <!--                <t t-call="report.internal_layout">-->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <t t-call="report.external_layout_header"/>
+                            <t t-call="report.external_layout_footer"/>
+                        </div>
+                    </div>
+                    <div class="oe_structure"></div>
+                    <div class="page">
+                        <div class="row" style="margin-left:1px">
+                            <div class="col-xs-5 " style=" height:150px;">
+                                <div class="row">
+                                    <div class="col-xs-12" style= "height:125px;">
+                                        <p style="margin:inherit;font-family:Times New Roman; font-size:14px"
+                                                 t-field="o.partner_id"
+                                                 t-options='{"widget":"contact","fields":["name"],"no_marker":true}'/>
+                                        <p style="margin:inherit;font-family:Times New Roman; font-size:14px"                                            t-field="o.partner_id"
+                                                 t-options='{"widget":"contact","fields":["address"],"no_marker":true}'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 " style=" height:150px;">
+                            <h3>Estimate</h3>
+                            <t t-foreach="o.invoice_line_ids" t-as="line">
+                                <p><strong>Invoice No.<span t-field="o.number"/></strong></p>
+                                <p><strong>Account No.<span t-field="line.account_id"/></strong></p>
+                            </t>
+                            <p><strong>Invoice Date.<span t-field="o.date_invoice"/></strong></p>
+                               <p><strong>Payment Method.<span t-field="o.payment_id"/></strong></p>
+                            </t>
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+    </template>
+</odoo>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--<template id="report_patient_cards">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <h2>Patient Card</h2>
+            </t>
+        </t>
+    </template>-->
+
+
+    <template id="report_job">
+        <t t-call="report.html_container">
+
+            <t t-foreach="docs" t-as="o">
+<!--                <t t-call="report.internal_layout">-->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <t t-call="report.external_layout_header"/>
+                        <t t-call="report.external_layout_footer"/>
+                    </div>
+                </div>
+                <h1>Car Services</h1>
+                    <div class="page">
+                        <div class="oe_structure"></div>
+                        <div>
+                            <table class="table-LargeTable">
+                                <thead></thead>
+                                <tbody>
+                                   <tr>
+                                       <td style="text/css">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <th style="font-family:Times New Roman;font-size:14px; padding: 0 15px">Customer :</th>
+                                                </div>
+                                            </div>
+                                       </td>
+                                        <td>
+                                            <div style="margin:inherit;font-family:Times New Roman; font-size:14px"
+                                                 t-field="o.partner_id"
+                                                 t-options='{"widget":"contact","fields":["name"],"no_marker":true}'/>
+                                        </td>
+                                        <td style="text/css">
+                                            <div class="col-xs-9">
+                                                <div class="row" >
+                                                    <th style="font-family:Times New Roman; padding:0 200px; font-size:14px">Assigned To :</th>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="font-family:Times New Roman;font-size:14px"
+                                                 t-field="o.user_id"/>
+                                        </td>
+                                    </tr>
+                                   <tr>
+                                        <td style="text/css">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <th style="font-family:Times New Roman; font-size:14px; padding:0 15px">Address :</th>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="font-family:Times New Roman;font-size=14px; width:150px; align:left"
+                                                 t-field="o.partner_id"
+                                                 t-options='{"widget":"contact","fields":["address"],"no_marker":true}'/>
+                                        </td>
+                                       <td style="=text/css">
+                                           <div class="row">
+                                               <div class="col-xs-9">
+                                                    <th style="font-family:Times New Roman; padding: 0 200px; font-size:14px"> Vehicle :</th>
+                                               </div>
+                                           </div>
+                                       </td>
+                                       <td>
+                                           <div style="margin:auto; font-family:Times New Roman; font-size:14px"
+                                                t-field="o.vehicle_id"/>
+                                       </td>
+                                    </tr>
+                                   <tr>
+                                        <td style="text/css">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <th style="font-family:Times New Roman;font-size:14px; padding:0 15px">Deadline :</th>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="margin:inherit;font-size:14px;font-family:Times New Roman"
+                                                 t-field="o.date_deadline"/>
+                                        </td>
+
+                                        <td style="text/css">
+                                            <div class="row">
+                                                <div class="col-xs-9">
+                                                    <th style="font-family:Times New Roman;font-size:14px; padding:0 200px">Tag :</th>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style=" margin:auto;margin:inherit;font-family:Times New Roman;font-size=14px"
+                                                 t-field="o.tag_ids"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                   <!--     <div class="row">
+                            <div class="col-xs-3">
+                                <strong>Customer:</strong>
+                            </div>
+                            <div class="col-xs-3" style="text; margin:auto; padding-left:180px">
+                                <div t-field="o.partner_id"
+                                     t-options='{"widget":"contact","fields":["address","name"],"no_marker":true}'/>
+                            </div>
+                            <div class="col-xs-9" style="margin:auto; padding-left:200px">
+                                <div class="row">
+                                    <div class="col-xs-5" style="margin:auto; padding-left:50px">
+                                        <strong>Assigned to</strong>
+                                    </div>
+                                    <div class="col-xs-4 col-xs-offset-3" style="margin:auto">
+                                        <div t-field="o.user_id"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-5" style="margin:auto;padding-left:50px">
+                                        <strong>Vehicle</strong>
+                                    </div>
+                                    <div class="col-xs-4 col-xs-offset-3" style="margin:auto">
+                                        <div t-field="o.vehicle_id"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-5" style="margin:auto; padding-left:50px">
+                                        <strong>Deadline</strong>
+                                    </div>
+                                    <div class="col-xs-4 col-xs-offset-3" style="margin:auto; text-align:left">
+                                        <div t-field="o.date_deadline"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-5" style="margin:auto; padding-left:50px">
+                                        <strong>Tag</strong>
+                                    </div>
+                                    <div class="col-xs-4 col-xs-offset-3" style="margin:auto; text-align:left">
+                                        <div t-field="o.tag_ids"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <h2 class="text-left">Planned/Ordered Work</h2>
+                                </tr>
+                                <tr>
+                                    <th class="text-left">Planned work</th>
+                                    <th class="text-left">Estimated time</th>
+                                    <th class="text-left">Date</th>
+                                    <th class="text-left">Responsible</th>
+                                    <th class="text-left">Service Cost</th>
+                                    <th class="text-left">Completed</th>
+                                </tr>
+                            </thead>
+                            <t t-foreach="o.planned_works" t-as="line">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <p class="text-left" t-field="line.planned_work"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.time_spent"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.work_date"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.responsible"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.work_cost"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.completed"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                            </t>
+                        </table>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <h2 class="text-left">Work Done</h2>
+                                </tr>
+                                <tr>
+                                    <th class="text-left">work Done</th>
+                                    <th class="text-left">Duration</th>
+                                    <th class="text-left">Date</th>
+                                    <th class="text-left">User</th>
+                                    <th class="text-left">Service Cost</th>
+                                </tr>
+                            </thead>
+                            <t t-foreach="o.works_done" t-as="line">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <p class="text-left" t-field="line.planned_work"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.duration"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.work_date"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.responsible"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.work_cost"/>
+                                    </td>
+                                </tr>
+                            </thead>
+                            </t>
+                        </table>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <h2 class="text-left">Materials Used</h2>
+                                </tr>
+                                <tr>
+                                    <th class="text-left">Products</th>
+                                    <th class="text-left">Quantity</th>
+                                    <th class="text-left">Unit Price</th>
+                                </tr>
+                            </thead>
+                            <t t-foreach="o.materials_used" t-as="line">
+                                <tr>
+                                    <td>
+                                        <p class="text-left" t-field="line.material"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.amount"/>
+                                    </td>
+                                    <td>
+                                        <p class="text-left" t-field="line.price"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <p class="text-left"><strong>Total Amount</strong></p>
+                            </div>
+                            <div class="col-xs-0">
+                                <p class="text-left" t-field="o.amount_total"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <p class="text-right"><strong>Hours Spent</strong></p>
+                            </div>
+                            <div class="col-xs-0">
+                                <p class="text-right" t-field="o.effective_hour"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <p class="text-right"><strong>Remaining Hour</strong></p>
+                            </div>
+                            <div class="col-xs-0">
+                                <p class="text-right" t-field="o.remaining_hour"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+<!--            </t>-->
+        </t>
+    </template>
+</odoo>

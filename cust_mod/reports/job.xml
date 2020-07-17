@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report id="report_car_job"
+                string="Car Workshop"
+                model="car.workshop"
+                report_type="qweb-html"
+                name="cust_mod.report_job"
+                file="cust_mod.report_job"/>
+
+
+
+    </data>
+</odoo>

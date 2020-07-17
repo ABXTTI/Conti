@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+ <record id="car_workshop_worksheet_inherit_form" model="ir.ui.view">
+        <field name="name">car.workshop_worksheet_inherit_form</field>
+        <field name="model">car.workshop</field>
+        <field name="inherit_id" ref="fleet_car_workshop.worksheet_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='planned_works']/tree/field[@name='work_cost']" position="before">
+                    <field name="x_cost"/>
+                    <field name="x_com"/>
+            </xpath>
+            <xpath expr="//field[@name='works_done']/tree/field[@name='work_cost']" position="before">
+                    <field name="x_cost"/>
+                    <field name="x_com1"/>
+            </xpath>
+        </field>
+ </record>
+    <record id="car_workshop_worksheet_inherit_form1" model="ir.ui.view">
+        <field name="name">material.used_works_inherit_form</field>
+        <field name="model">material.used</field>
+        <field name="inherit_id" ref="fleet_car_workshop.material_used_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='price']" position="before">
+                    <field name="x_cost2"/>
+                    <field name="x_com2"/>
+            </xpath>
+            <xpath expr="//tree/field[@name='price']" position="after">
+                    <field name="x_com3"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
