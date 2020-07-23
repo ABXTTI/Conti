@@ -21,7 +21,10 @@
                                 <p style="color:red; margin-left:20px; margin-top:-5px">07.07.2020</p>
 
                         </div>-->
-                 
+<!--                        <div style="position:absolute;text-align:center;z-index:-1;border‌​:0;opacity:0.1;-->
+<!--                                paddi‌​ng-top:200px; padding-left:200px; margin-top:550px; margin-left:150px ">-->
+<!--                            <img src="cust_mod/static/src/img/paid.png" width="300px" height="100px"/>-->
+<!--                        </div>-->
 
                         <div class="text-center" style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
                             <h1>Work Sheet</h1>
@@ -59,7 +62,7 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <p>
-                                                    <span>QC Technician:</span>
+                                                    <span>Technician:</span>
                                                     <span style="margin:auto; font-family:Times New Roman; font-size:14px"
                                                     t-field="o.user_id"/>
                                                 </p>
@@ -78,7 +81,7 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <p>
-                                                    <span>Due by Date: </span>
+                                                    <span>Due Date: </span>
                                                     <span style="margin:auto; font-family:Times New Roman; font-size:14px"
                                                     t-field="o.x_time_out"/>
                                                 </p>
@@ -103,41 +106,46 @@
                                 </div>
                                 </div>
                             </div>
+                        <br/><br/>
                         <div class="row" style="margin-top:10px;margin-left:1px;margin-right:0.5px">
                                 <table class="table table-bordered" width="100%" style="border-color:red">
                                     <tbody>
                                         <thead>
                                             <tr border="1">
                                                 <th class="text-center" style="border:1px solid black">License Plate</th>
-                                                <th class="text-center" style="border:1px solid black"><span>Make and Model</span></th>
+                                                <th class="text-center" style="border:1px solid black"><span>Make</span></th>
                                                 <th class="text-center" style="border:1px solid black">Model</th>
-                                                <th class="text-center" style="border:1px solid black">Engine CC</th>
+                                                <th class="text-center" style="border:1px solid black">Colour</th>
                                                 <th class="text-center" style="border:1px solid black">Mileage</th>
+                                                <th class="text-center" style="border:1px solid black">Technician</th>
+                                               <th class="text-center" style="border:1px solid black">Job Title</th>
                                             </tr>
                                         </thead>
                                         <tr>
                                             <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.license_plate"/></td>
                                             <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.brand_id"/></td>
                                             <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.name"/></td>
-                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.x_enginecc"/></td>
-                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.odometer"/></td>
-                                        </tr>
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center" style="border:1px solid black">QC Technician</th>
-                                                <th class="text-center" style="border:1px solid black">Department</th>
-                                                <th class="text-center" style="border:1px solid black">MOT Status</th>
-                                                <th class="text-center" style="border:1px solid black">Date Reg</th>
-                                                <th class="text-center" style="border:1px solid black">Colour</th>
-                                            </tr>
-                                        </thead>
-                                        <tr>
-                                            <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>
-                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.location"/></td>
-                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.total_days"/></td>
-                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.x_registrationdate"/></td>
                                             <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.color"/></td>
+                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.odometer"/></td>
+                                            <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>
+                                            <td class="text-center" style="border:1px solid black"><p t-field="o.name"/></td>
                                         </tr>
+<!--                                        <thead>-->
+<!--                                            <tr>-->
+<!--                                                <th class="text-center" style="border:1px solid black">QC Technician</th>-->
+<!--                                                <th class="text-center" style="border:1px solid black">Department</th>-->
+<!--                                                <th class="text-center" style="border:1px solid black">MOT Status</th>-->
+<!--                                                <th class="text-center" style="border:1px solid black">Date Reg</th>-->
+<!--                                                <th class="text-center" style="border:1px solid black">Colour</th>-->
+<!--                                            </tr>-->
+<!--                                        </thead>-->
+<!--                                        <tr>-->
+<!--                                            <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>-->
+<!--                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.location"/></td>-->
+<!--                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.total_days"/></td>-->
+<!--                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.x_registrationdate"/></td>-->
+<!--                                            <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.color"/></td>-->
+<!--                                        </tr>-->
                                     </tbody>
                                 </table>
                         </div>
@@ -170,81 +178,81 @@
                                 <p t-field="o.description"/>
                             </div>
                         </div>
-                        <div class="row" style="margin-top:10px;margin-left:1px;margin-right:0.5px">
-                                <table class="table-bordered" width="100%" >
-                                    <tbody>
-                                        <thead>
-                                                <tr>
-                                                    <div class="col-xs-7">
-                                                        <th class="text-center" style="border:1px solid black; width:60%">Labour</th>
-                                                    </div>
-                                                    <div class="col-xs-1">
-                                                        <th class="text-center" style="border:1px solid black; width:10%">Tech</th>
-                                                    </div>
-                                                    <div class="col-xs-1">
-                                                        <th class="text-center" style="border:1px solid black; width:20%">Qty/Hrs</th>
-                                                    </div>
-                                                    <div class="col-xs-1">
-                                                      <th class="text-center" style="border:1px solid black; width:10%">Time Taken</th>
-                                                    </div>
-                                                </tr>
-                                        </thead>
-                                            <!--<tr>
-                                                <div class="col-xs-7">
-                                                    <td class="text-center" style="border:1px solid black; width:60%"><span>1</span></td>
-                                                </div>
-                                                <div class="col-xs-1">
-                                                    <td class="text-center" style="border:1px solid black; width:10%"><span>2</span></td>
-                                                </div>
-                                                <div class="2px">
-                                                    <td class="text-center" style="border:1px solid black; width:20%">3</td>
-                                                </div>
-                                                <div class="1px">
-                                                  <td class="text-center" style="border:1px solid black; width:10%">4</td>
-                                                </div>
-                                            </tr>-->
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="row" style="margin-top:10px;margin-left:1px;margin-right:0.5px">
-                                <table class="table-bordered" width="100%">
-                                    <tbody>
-                                        <thead>
-                                                <tr>
-                                                    <div class="col-xs-7">
-                                                        <th class="text-center" style="border:1px solid black; width:60%"><span>Part List</span></th>
-                                                    </div>
-                                                    <div class="col-xs-1">
-                                                        <th class="text-center" style="border:1px solid black; width:20%"><span>Part No</span></th>
-                                                    </div>
-                                                    <div class="col-xs-1">
-                                                        <th class="text-center" style="border:1px solid black; width:20%">Qty</th>
-                                                    </div>
-                                                </tr>
-                                        </thead>
-                                        <t t-foreach="o.materials_used" t-as="line">
-                                            <tr>
-                                                <div class="col-xs-7">
-                                                    <td class="text-center" style="border:1px solid black; width:60%">
-                                                        <p t-field="line.material"/>
-                                                    </td>
-                                                    </div>
-                                                    <div class="col-xs-1">
-                                                        <td class="text-center" style="border:1px solid black; width:20%">
-                                                            <p t-field="line.amount"/>
-                                                        </td>
-                                                    </div>
-                                                    <div class="col-xs-1">
-                                                        <td class="text-center" style="border:1px solid black; width:20%">
-                                                            <p t-field="line.price"/>
-                                                        </td>
-                                                    </div>
-                                                </tr>
-                                         </t>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <br/>
+<!--                        <div class="row" style="margin-top:10px;margin-left:1px;margin-right:0.5px">-->
+<!--                                <table class="table-bordered" width="100%" >-->
+<!--                                    <tbody>-->
+<!--                                        <thead>-->
+<!--                                                <tr>-->
+<!--                                                    <div class="col-xs-7">-->
+<!--                                                        <th class="text-center" style="border:1px solid black; width:60%">Labour</th>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-xs-1">-->
+<!--                                                        <th class="text-center" style="border:1px solid black; width:10%">Tech</th>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-xs-1">-->
+<!--                                                        <th class="text-center" style="border:1px solid black; width:20%">Qty/Hrs</th>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-xs-1">-->
+<!--                                                      <th class="text-center" style="border:1px solid black; width:10%">Time Taken</th>-->
+<!--                                                    </div>-->
+<!--                                                </tr>-->
+<!--                                        </thead>-->
+<!--                                            &lt;!&ndash;<tr>-->
+<!--                                                <div class="col-xs-7">-->
+<!--                                                    <td class="text-center" style="border:1px solid black; width:60%"><span>1</span></td>-->
+<!--                                                </div>-->
+<!--                                                <div class="col-xs-1">-->
+<!--                                                    <td class="text-center" style="border:1px solid black; width:10%"><span>2</span></td>-->
+<!--                                                </div>-->
+<!--                                                <div class="2px">-->
+<!--                                                    <td class="text-center" style="border:1px solid black; width:20%">3</td>-->
+<!--                                                </div>-->
+<!--                                                <div class="1px">-->
+<!--                                                  <td class="text-center" style="border:1px solid black; width:10%">4</td>-->
+<!--                                                </div>-->
+<!--                                            </tr>&ndash;&gt;-->
+<!--                                    </tbody>-->
+<!--                                </table>-->
+<!--                            </div>-->
+<!--                        <div class="row" style="margin-top:10px;margin-left:1px;margin-right:0.5px">-->
+<!--                                <table class="table-bordered" width="100%">-->
+<!--                                    <tbody>-->
+<!--                                        <thead>-->
+<!--                                                <tr>-->
+<!--                                                    <div class="col-xs-7">-->
+<!--                                                        <th class="text-center" style="border:1px solid black; width:60%"><span>Part List</span></th>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-xs-1">-->
+<!--                                                        <th class="text-center" style="border:1px solid black; width:20%"><span>Part No</span></th>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-xs-1">-->
+<!--                                                        <th class="text-center" style="border:1px solid black; width:20%">Qty</th>-->
+<!--                                                    </div>-->
+<!--                                                </tr>-->
+<!--                                        </thead>-->
+<!--                                        <t t-foreach="o.materials_used" t-as="line">-->
+<!--                                            <tr>-->
+<!--                                                <div class="col-xs-7">-->
+<!--                                                    <td class="text-center" style="border:1px solid black; width:60%">-->
+<!--                                                        <p t-field="line.material"/>-->
+<!--                                                    </td>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-xs-1">-->
+<!--                                                        <td class="text-center" style="border:1px solid black; width:20%">-->
+<!--                                                            <p t-field="line.material.default_code"/>-->
+<!--                                                        </td>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="col-xs-1">-->
+<!--                                                        <td class="text-center" style="border:1px solid black; width:20%">-->
+<!--                                                            <p t-field="line.amount"/>-->
+<!--                                                        </td>-->
+<!--                                                    </div>-->
+<!--                                                </tr>-->
+<!--                                         </t>-->
+<!--                                    </tbody>-->
+<!--                                </table>-->
+<!--                            </div>-->
+                            <br/><br/>
                             <div class="row" style="margin-top:10px;margin-left:1px;margin-right:0.5px;
                                 " height="50px">
                                 <div class="col-xs-12" style="border:1px solid black;height:100px;
@@ -258,24 +266,24 @@
                                 style="height:300px;width:300px"/>
                                 </div>
                             </div>-->
-                            <br/><br/>
+                            <br/><br/><br/>
                             <p class="text-justify">
                                 I agree to pay for above jobs and parts used for the repairs, as described above at your retail charges. It is understood that any estimate given is provisional
                                 and all repairs are undertaken on cash basis unless prior arrangements for credit have been approved. Any additional work found to be necessary must be
                                 authorized by myself prior to commencement. All goods shall remain the property of the seller until paid for in full. I have read and accept your terms and
                                 conditions. Nothing herein is designed to nor will it affect a customer’s statutory rights.
                             </p>
-                            <br/><br/>
-                            <div class="row">
+                            <br/><br/><br/><br/><br/><br/><br/>
+                            <div class="row" style="margin-left:10px">
                                 <div class="col-xs-3">
-                                    <p><span>Signed</span><span>---------------</span></p>
+                                    <p><span>Signed:</span><span style="margin-left:2px">---------------</span></p>
                                 </div>
                                 <div class="col-xs-3">
-                                    <p><span>Dated</span><span>------------------</span></p>
+                                    <p><span>Dated:</span><span style="margin-left:2px">------------------</span></p>
                                 </div>
                             </div>
                         </div>
-                        <br/><br/><br/><br/>
+
 
                 </t>
             </t>
