@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report id="report_invoice_sheet"
+                string="invoice"
+                model="account.invoice"
+                report_type="qweb-html"
+                name="cust_mod.report_invoice"
+                file="cust_mod.report_invoice"/>
+    </data>
+</odoo>
