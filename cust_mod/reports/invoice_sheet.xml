@@ -65,25 +65,25 @@
 <!--                    <strong>Source:</strong>-->
 <!--                    <p t-field="o.origin"/>-->
 <!--                </div>-->
-                <div class="col-xs-2" t-if="o.move_id.company_id.phone">
+                <div class="col-xs-2" t-if="o.partner_id.mobile">
                     <strong>Contact:</strong>
-                    <p t-field="o.move_id.company_id.phone"/>
+                    <p t-field="o.partner_id.mobile"/>
                 </div>
 <!--                <div class="col-xs-2" t-if="o.partner_id.ref">-->
 <!--                    <strong>Customer Code:</strong>-->
 <!--                    <p t-field="o.partner_id.ref"/>-->
 <!--                </div>-->
-                <div class="col-xs-2" t-if="o.relation.model_id">
+                <div class="col-xs-2" t-if="o.relation">
                     <strong>Make And Model:</strong>
-                    <p t-field="o.relation.model_id"/>
+                    <p t-field="o.relation"/>
                 </div>
 <!--                <div name="reference" class="col-xs-2" t-if="o.reference">-->
 <!--                    <strong>Reference:</strong>-->
 <!--                    <p t-field="o.reference"/>-->
 <!--                </div>-->
-                <div class="col-xs-2" t-if="o.relation.license_plate">
+                <div class="col-xs-2" t-if="o.relation.name.license_plate">
                     <strong>Reg#</strong>
-                    <p t-field="o.relation.license_plate"/>
+                    <p t-field="o.relation.name.license_plate"/>
                 </div>
             </div>
 
@@ -137,7 +137,7 @@
                         </tr>
                         <t t-foreach="o._get_tax_amount_by_group()" t-as="amount_by_group">
                             <tr>
-                                <td><span t-esc="amount_by_group[0] if len(o.tax_line_ids) > 1 else (o.tax_line_ids.tax_id.description or o.tax_line_ids.tax_id.name)"/></td>
+                                <td><span>VAT</span><span t-esc="amount_by_group[0] if len(o.tax_line_ids) > 1 else (o.tax_line_ids.tax_id.description or o.tax_line_ids.tax_id.name)"/></td>
                                 <td class="text-right">
                                     <span t-esc="amount_by_group[2]"/>
                                 </td>
@@ -192,7 +192,9 @@
             </p>
             <div class="row">
                 <p>
-                    <p><span><strong>Barclays Bank: 33830918, Sort Code: 20-96-60</strong></span></p>
+                    <p><span><strong>Bank Detail:</strong></span></p>
+                    <p><span>Title: London Motor Sports</span></p>
+                    <p><span>Barclays Bank: 33830918, Sort Code: 20-96-60</span></p>
                     <p><span><strong>VAT Reg# 340315935</strong></span></p>
                 </p>
             </div>
