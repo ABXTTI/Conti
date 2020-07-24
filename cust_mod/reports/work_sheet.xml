@@ -34,9 +34,12 @@
                                     height:150px;">
                                 <div class="row">
                                     <div class="col-xs-12" style= "border:1px solid black; height:125px;">
-                                        <p style="margin:inherit;font-family:Times New Roman; font-size:14px"
+                                       <p>
+                                        <strong><span style="margin:inherit;font-family:Times New Roman; font-size:14px"
                                                  t-field="o.partner_id"
                                                  t-options='{"widget":"contact","fields":["name"],"no_marker":true}'/>
+                                       </strong>
+                                       </p>
                                         <p style="margin:inherit;font-family:Times New Roman; font-size:14px"
                                                  t-field="o.partner_id"
                                                  t-options='{"widget":"contact","fields":["address"],"no_marker":true}'/>
@@ -44,10 +47,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-5">
-                                        <p><span>Telephone:</span></p>
+                                        <p><strong><span>Telephone:</span></strong><span style="margin-left:2px" t-field="o.partner_id.phone"/></p>
                                     </div>
                                     <div class="col-xs-5">
-                                        <p><span>Mobile:</span></p>
+                                        <p><strong><span>Mobile:</span></strong><span style="margin-left:2px" t-field="o.partner_id.mobile"/></p>
                                     </div>
                                 </div>
                             </div>
@@ -106,8 +109,7 @@
                                 </div>
                                 </div>
                             </div>
-                        <br/><br/>
-                        <div class="row" style="margin-top:10px;margin-left:1px;margin-right:0.5px">
+                        <div class="row" style="margin-top:13px;margin-left:1px;margin-right:0.5px;">
                                 <table class="table table-bordered" width="100%" style="border-color:red">
                                     <tbody>
                                         <thead>
@@ -173,8 +175,8 @@
                                 </table>
                             </div>
                         </div>-->
-                        <div class="row no-gutters" style="margin-left:1px; margin-right:0.5px">
-                            <div class="col-xs-12" style="border:1px solid black; margin-top:20px;">
+                        <div class="row" style="margin-top:-10px;margin-left:1px; margin-right:0.5px">
+                            <div class="col-xs-12" style="border:1px solid black; margin-top:3px;">
                                 <p t-field="o.description"/>
                             </div>
                         </div>
@@ -252,11 +254,10 @@
 <!--                                    </tbody>-->
 <!--                                </table>-->
 <!--                            </div>-->
-                            <br/><br/>
-                            <div class="row" style="margin-top:10px;margin-left:1px;margin-right:0.5px;
+                            <div class="row" style="margin-top:13px;margin-left:1px;margin-right:0.5px;
                                 " height="50px">
-                                <div class="col-xs-12" style="border:1px solid black;height:100px;
-                                        ">
+                                <div class="col-xs-12" style="border:1px solid black;height:100px;">
+
                                    <p>Technician notes/comments </p>
                                 </div>
                             </div>
@@ -266,14 +267,14 @@
                                 style="height:300px;width:300px"/>
                                 </div>
                             </div>-->
-                            <br/><br/><br/>
+                            <br/>
                             <p class="text-justify">
                                 I agree to pay for above jobs and parts used for the repairs, as described above at your retail charges. It is understood that any estimate given is provisional
                                 and all repairs are undertaken on cash basis unless prior arrangements for credit have been approved. Any additional work found to be necessary must be
                                 authorized by myself prior to commencement. All goods shall remain the property of the seller until paid for in full. I have read and accept your terms and
                                 conditions. Nothing herein is designed to nor will it affect a customer’s statutory rights.
                             </p>
-                            <br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/>
                             <div class="row" style="margin-left:10px">
                                 <div class="col-xs-3">
                                     <p><span>Signed:</span><span style="margin-left:2px">---------------</span></p>
