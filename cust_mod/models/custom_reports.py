@@ -3,6 +3,9 @@ from odoo import models, fields, api, _
 from datetime import datetime
 from odoo.exceptions import ValidationError
 
+class AccountInvoice(models.Model):
+     _inherit = 'account.invoice'
+     relation=fields.Many2one('fleet.vehicle', string="Relation")
 
 class CarWorkshop(models.Model):
     _inherit = 'car.workshop'
