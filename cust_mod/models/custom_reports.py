@@ -5,7 +5,15 @@ from odoo.exceptions import ValidationError
 
 class AccountInvoice(models.Model):
      _inherit = 'account.invoice'
-     relation=fields.Many2one('fleet.vehicle', string="Relation")
+     relation=fields.Many2one(string="Relation", related='x_ref.vehicle_id')
+     x_ref=fields.Many2one('car.workshop', compute='get_origin')
+     @api.multi
+     def get_origin(self):
+         for rec in self:
+             res=rec.env['car.workshop'].search([('name','=',rec.origin)])
+             rec.x_ref=res
+
+
 
 class CarWorkshop(models.Model):
     _inherit = 'car.workshop'
