@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="shee_inherit" model="ir.ui.view">
+        <field name="name">account.invoice_form</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="sale.account_invoice_form"/>
+        <field name="arch" type="xml">
+           <xpath expr="//page/group/group/field[@name='move_id']" position="after">
+                    <field name="relation"/>
+                    <field name="job_no"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

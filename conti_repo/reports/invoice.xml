@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report id="report_invoice_sheet"
+                string="invoice"
+                model="account.invoice"
+                report_type="qweb-html"
+                name="conti_repo.report_invoice"
+                file="conti_repo.report_invoice"/>
+    </data>
+</odoo>
