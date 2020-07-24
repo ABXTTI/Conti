@@ -20,8 +20,6 @@
         'reports/work_sheet.xml',
         'reports/estimate.xml',
         'reports/estimate_sheet.xml',
-        'reports/invoice.xml',
-        'reports/invoice_sheet.xml',
         'views/inherit_cost_product.xml',
     ],
     'images': ['static/description/banner.jpg','static/src/img/header.jpeg','static/src/img/footer.jpeg','static/src/img/paid.png'],

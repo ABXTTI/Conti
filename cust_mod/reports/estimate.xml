@@ -7,5 +7,11 @@
                 report_type="qweb-html"
                 name="cust_mod.report_estimate"
                 file="cust_mod.report_estimate"/>
+        <report id="report_estimate_sheet"
+                string="Estimate"
+                model="fleet.vehicle"
+                report_type="qweb-html"
+                name="cust_mod.report_estimate"
+                file="cust_mod.report_estimate"/>
     </data>
 </odoo>

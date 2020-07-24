@@ -14,28 +14,61 @@
                     </div>
                     <div class="oe_structure"></div>
                     <div class="page">
-                        <div class="row" style="margin-left:1px">
-                            <div class="col-xs-5 " style=" height:150px;">
-                                <div class="row">
-                                    <div class="col-xs-12" style= "height:125px;">
-                                        <p style="margin:inherit;font-family:Times New Roman; font-size:14px"
+                        <div class="row">
+                            <div class="col-xs-5 col-xs-offset-1">
+                                <p style="margin:inherit;font-family:Times New Roman; font-size:14px"
                                                  t-field="o.partner_id"
                                                  t-options='{"widget":"contact","fields":["name"],"no_marker":true}'/>
-                                        <p style="margin:inherit;font-family:Times New Roman; font-size:14px"                                            t-field="o.partner_id"
-                                                 t-options='{"widget":"contact","fields":["address"],"no_marker":true}'/>
-                                    </div>
-                                </div>
+
                             </div>
+                            <div class="col-xs-5 col-xs-offset-1">
+                                <p>
+                                    <strong>
+                                        Estimate
+                                    </strong>
+                                </p>
+                                <p>
+                                    <span><strong>Invoice No.</strong></span><span t-field="o.number"/>
+                                </p>
+                                <p>
+                                    <span><strong>Account No.</strong></span><span t-field="o.invoice_line_ids.account_id"/>
+
+                                </p>
+                                <p>
+                                    <span><strong>Case ref.</strong></span><span></span>
+                                </p>
+                                <p>
+                                    <span><strong>Invoice Date.</strong></span><span t-field="o.date_invoice"/>
+                                </p>
+                                <p>
+                                    <span><strong>Payment Method.</strong></span><span></span>
+                                </p>
+                                <p>
+                                    <span><strong>Date of Work.</strong></span><span></span>
+                                </p>
+                            </div>
+
                         </div>
-                        <div class="col-xs-6 " style=" height:150px;">
-                            <h3>Estimate</h3>
-                            <t t-foreach="o.invoice_line_ids" t-as="line">
-                                <p><strong>Invoice No.<span t-field="o.number"/></strong></p>
-                                <p><strong>Account No.<span t-field="line.account_id"/></strong></p>
-                            </t>
-                            <p><strong>Invoice Date.<span t-field="o.date_invoice"/></strong></p>
-                               <p><strong>Payment Method.<span t-field="o.payment_id"/></strong></p>
-                        </div>
+                        <table class="table table-bordered" width="100%" style="border-color:red">
+                            <tbody>
+                                <thead>
+                                    <tr border="1">
+                                        <th class="text-center" style="border:1px solid black">Registration</th>
+                                        <th class="text-center" style="border:1px solid black"><span>Make and Model</span></th>
+                                        <th class="text-center" style="border:1px solid black">Model</th>
+                                        <th class="text-center" style="border:1px solid black">Engine CC</th>
+                                        <th class="text-center" style="border:1px solid black">Mileage</th>
+                                    </tr>
+                                </thead>
+                                    <tr border="1">
+                                        <td class="text-center" style="border:1px solid black">0</td>
+                                        <td class="text-center" style="border:1px solid black"><span>0</span></td>
+                                        <td class="text-center" style="border:1px solid black">0</td>
+                                        <td class="text-center" style="border:1px solid black">0</td>
+                                        <td class="text-center" style="border:1px solid black">0</td>
+                                    </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </t>
             </t>
