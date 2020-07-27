@@ -137,6 +137,7 @@ class CarWorkshop(models.Model):
             'journal_id': journal_id,
             'origin': self.name,
             'company_id': company_id.id,
+            'job_no': self.id
         }
         inv_id = inv_obj.create(inv_data)
         for records in self.planned_works:
