@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
- <record id="car_workshop_worksheet_inherit_form" model="ir.ui.view">
-        <field name="name">car.workshop_worksheet_inherit_form</field>
+ <record id="car_workshop_worksheet_inherit_formss" model="ir.ui.view">
+        <field name="name">car.workshop_worksheet_inherit_form2</field>
         <field name="model">car.workshop</field>
         <field name="inherit_id" ref="fleet_car_workshop.worksheet_form_view"/>
         <field name="arch" type="xml">
@@ -21,7 +21,7 @@
         <field name="inherit_id" ref="fleet_car_workshop.material_used_tree_view"/>
         <field name="arch" type="xml">
             <xpath expr="//tree/field[@name='price']" position="before">
-                    <field name="x_cost2"/>
+                    <field name="x_cost2" readonly="1"/>
                     <field name="x_com2"/>
             </xpath>
             <xpath expr="//tree/field[@name='price']" position="after">
