@@ -137,7 +137,8 @@ class CarWorkshop(models.Model):
             'journal_id': journal_id,
             'origin': self.name,
             'company_id': company_id.id,
-            'job_no': self.id
+            'job_no': self.id,
+            'x_total':self.amount_totals
         }
         inv_id = inv_obj.create(inv_data)
         for records in self.planned_works:
@@ -154,6 +155,7 @@ class CarWorkshop(models.Model):
                 'quantity': 1,
                 'product_id': records.planned_work.id,
                 'invoice_id': inv_id.id,
+                'x_tcost':records.x_com
             }
             inv_line_obj.create(inv_line_data)
 
@@ -171,6 +173,7 @@ class CarWorkshop(models.Model):
                 'quantity': records.amount,
                 'product_id': records.material.id,
                 'invoice_id': inv_id.id,
+                'x_tcost':records.x_com2,
             }
             inv_line_obj.create(inv_line_data)
 
@@ -219,6 +222,9 @@ class CarWorkshop(models.Model):
                         'picking_type_id': types.id,
                         'location_id': types.default_location_src_id.id,
                         'location_dest_id': self.partner_id.property_stock_customer.id,
+                        'x_job_ref' : self.x_seq,
+                        # 'x_vehicle' : self.vehicle_id,
+                        'job_no':self.id,
                         'move_lines': [(0, 0, {
                             'name': self.name,
                             'product_id': prod_id.id,
