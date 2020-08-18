@@ -1,7 +1,8 @@
 from odoo import models, fields, api, _
 class AccountInvoice(models.Model):
-    _inherit = ['account.invoice']
+    _inherit = 'account.invoice'
 
+    api.multi
     def get_int(self):
         for rec in self:
             if type(rec.x_total) == float:
