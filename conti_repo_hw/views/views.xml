@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    <record id="shee_inherit" model="ir.ui.view">
+    <record id="sheet_inherit" model="ir.ui.view">
         <field name="name">account.invoice_form</field>
         <field name="model">account.invoice</field>
         <field name="inherit_id" ref="sale.account_invoice_form"/>
