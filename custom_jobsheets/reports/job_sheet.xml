@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report id="report_job_sheet"
+                string="Vehicle Health"
+                model="car.workshop"
+                report_type="qweb-html"
+                name="custom_jobsheets.report_job"
+                file="custom_jobsheets.report_job"/>
+
+    </data>
+    <template id="report_job">
+        <t t-call="report.html_container">
+
+            <t t-foreach="docs" t-as="o">
+<!--                <t t-call="report.internal_layout">-->
+                <div class="row">
+                    <div class="col-xs-12 footer" style="height:30%">
+                        <img src="custom_jobsheets/static/src/img/footer.jpeg" width="100%" height="50px"/>
+                    </div>
+                    <div class="col-xs-12 header" style="height:30%">
+                        <img src="custom_jobsheets/static/src/img/header.jpeg" width="100%" height="100px"/>
+                    </div>
+                </div>
+
+                <div class="oe_structure"></div>
+                <div class="page">
+                    <div class="text-center" style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
+                            <h1>Vehicle Health Check-Up</h1>
+                        </div>
+                    <div class="row">
+                        <div class="col-xs-6 " style="border:1px solid black;">
+
+                            <div class="row" style="border-bottom:1px solid black">
+                                <div class="col-xs-12">
+                                   <p>
+                                    <strong><span style="margin:inherit;font-family:Times New Roman; font-size:14px"
+                                             t-field="o.partner_id"
+                                             t-options='{"widget":"contact","fields":["name"],"no_marker":true}'/>
+                                   </strong>
+                                   </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p>
+                                        <strong>
+                                            <span style="margin:inherit;font-family:Times New Roman; font-size:14px">Telephone:</span>
+                                        </strong>
+                                        <span t-field="o.partner_id.phone"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row" style="border-top:1px solid black">
+                                <div class="col-xs-12">
+                                    <p>
+                                        <strong>
+                                            <span style="margin:inherit;font-family:Times New Roman; font-size:14px">Mobile:</span>
+                                        </strong>
+                                        <span t-field="o.partner_id.mobile"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 col-xs-offset-1" style="border:1px solid black;">
+
+                            <div class="row" style="border-bottom:1px solid black;">
+                                <div class="col-xs-12">
+                                   <p>
+                                    <strong>
+                                        <span style="margin:inherit;font-family:Times New Roman; font-size:14px">Doc Reference:</span>
+                                   </strong>
+                                   </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p>
+                                        <strong>
+                                            <span style="margin:inherit;font-family:Times New Roman; font-size:14px">Technician:</span>
+                                        </strong>
+                                        <span t-field="o.partner_id.phone"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row" style="border-top:1px solid black">
+                                <div class="col-xs-12">
+                                    <p>
+                                        <strong>
+                                            <span style="margin:inherit;font-family:Times New Roman; font-size:14px">Received Date:</span>
+                                        </strong>
+                                        <span t-field="o.partner_id.mobile"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row" style="border-top:1px solid black;">
+                                <div class="col-xs-12">
+                                    <p>
+                                        <span style="padding-top:2px">Status:</span>
+                                        <span style="margin-left:10px">
+                                            <label for="fname">In progress</label>
+                                            <input type="checkbox" name="fname"/>
+                                        </span>
+                                        <span style="margin-left:10px">
+                                            <label for="fname1">Completed</label>
+                                            <input type="checkbox" name="fname1"/>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <table class="table" width="100%" style="border-color:red">
+                            <tbody>
+                                <thead>
+                                    <tr border="1">
+                                        <th class="text-center" style="border:1px solid black">License Plate</th>
+                                        <th class="text-center" style="border:1px solid black"><span>Make</span></th>
+                                        <th class="text-center" style="border:1px solid black">Model</th>
+                                        <th class="text-center" style="border:1px solid black">Colour</th>
+                                        <th class="text-center" style="border:1px solid black">Mileage</th>
+                                        <th class="text-center" style="border:1px solid black">Technician</th>
+                                       <th class="text-center" style="border:1px solid black">Job Title</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.license_plate"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.brand_id"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.name"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.color"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.odometer"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.license_plate"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.brand_id"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.name"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.color"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.odometer"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.license_plate"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.brand_id"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.name"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.color"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.odometer"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.license_plate"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.brand_id"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.name"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.color"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.odometer"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>
+                                    <td class="text-center" style="border:1px solid black"><p t-field="o.name"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" style="border:1px solid black; margin-top:-5px">
+                        <div class="col-xs-12">
+                            <p t-field="o.description"/>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <table class="table table-bordered" width="100%" style="border-color:red">
+                            <tbody>
+                                <thead>
+                                    <tr border="1">
+                                        <th class="text-center" style="border:1px solid black">Areas to Inspect/Condition</th>
+                                        <th class="text-center" style="border:1px solid black"><span>Good</span></th>
+                                        <th class="text-center" style="border:1px solid black">Bad</th>
+                                        <th class="text-center" style="border:1px solid black">Areas to Inspect/Condition</th>
+                                        <th class="text-center" style="border:1px solid black">Good</th>
+                                        <th class="text-center" style="border:1px solid black">Bad</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">Lights</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black">Front Tyres/Alloys</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">Windscreens</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black">Rear Tyres/Alloys</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">Wipers/Horn</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black">Front Pads/Discs</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">AirCon</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black">Rear Pads/Discs</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">Belts/Pulleys</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-left" style="border:0.5px solid black" colspan="3">Technician Comments:</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">Suspension</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-left" style="border-right:1px solid black" colspan="3"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">Steering</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-left" style="border-right:1px solid black" colspan="3"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">Filters/Oil</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-left" style="border-right:1px solid black" colspan="3"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">Dashboard Signs</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-left" style="border-right:1px solid black" colspan="3"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center" style="border:1px solid black">Coolant/AdBlu/Washer Fluids</td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-center" style="border:1px solid black"><input type="checkbox" name="fname"/></td>
+                                    <td class="text-left" style="border-right:1px solid black; border-bottom:1px solid black" colspan="3"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
+
