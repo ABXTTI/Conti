@@ -15,11 +15,13 @@
             <t t-foreach="docs" t-as="o">
 <!--                <t t-call="report.internal_layout">-->
                 <div class="row">
-                    <div class="col-xs-12 footer" style="height:30%">
-                        <img src="custom_jobsheets/static/src/img/footer.jpeg" width="100%" height="50px"/>
+                    <div class="col-xs-12 footer" style="height:30%; width:100%; margin:0">
+                        <img src="custom_jobsheets/static/src/img/footer.png" width="107%" height="50px"
+                             style="margin-left:-30;"/>
                     </div>
-                    <div class="col-xs-12 header" style="height:30%">
-                        <img src="custom_jobsheets/static/src/img/header.jpeg" width="100%" height="100px"/>
+                    <div class="col-xs-12 header" style="height:30%; width:100%; margin:0">
+                        <img src="custom_jobsheets/static/src/img/header.jpeg" width="107%" height="100px"
+                             style="margin-left:-30;"/>
                     </div>
                 </div>
 
@@ -69,6 +71,7 @@
                                    <p>
                                     <strong>
                                         <span style="margin:inherit;font-family:Times New Roman; font-size:14px">Doc Reference:</span>
+                                        <span t-field="o.x_seq"/>
                                    </strong>
                                    </p>
                                 </div>
@@ -79,7 +82,7 @@
                                         <strong>
                                             <span style="margin:inherit;font-family:Times New Roman; font-size:14px">Technician:</span>
                                         </strong>
-                                        <span t-field="o.partner_id.phone"/>
+                                        <span t-field="o.user_id"/>
                                     </p>
                                 </div>
                             </div>
@@ -89,7 +92,7 @@
                                         <strong>
                                             <span style="margin:inherit;font-family:Times New Roman; font-size:14px">Received Date:</span>
                                         </strong>
-                                        <span t-field="o.partner_id.mobile"/>
+                                        <span t-field="o.x_time_in"/>
                                     </p>
                                 </div>
                             </div>
@@ -124,33 +127,6 @@
                                        <th class="text-center" style="border:1px solid black">Job Title</th>
                                     </tr>
                                 </thead>
-                                <tr>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.license_plate"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.brand_id"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.name"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.color"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.odometer"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.name"/></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.license_plate"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.brand_id"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.name"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.color"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.odometer"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.name"/></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.license_plate"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.brand_id"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.name"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.color"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.odometer"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.user_id"/></td>
-                                    <td class="text-center" style="border:1px solid black"><p t-field="o.name"/></td>
-                                </tr>
                                 <tr>
                                     <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.license_plate"/></td>
                                     <td class="text-center" style="border:1px solid black"><p t-field="o.vehicle_id.name.model_id.brand_id"/></td>
