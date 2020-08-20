@@ -5,10 +5,26 @@ from odoo.exceptions import ValidationError
 
 class AccountInvoice(models.Model):
      _inherit = ['account.invoice']
-
      job_no=fields.Char(string="Job Number")
      relation=fields.Many2one(string="Relation", related='x_ref.vehicle_id')
      x_ref=fields.Many2one('car.workshop', compute='get_origin')
+     x_total=fields.Float(string="Total Cost", readonly=True)
+
+
+     # def get_int(self):
+     #    for rec in self:
+     #        if type(rec.x_total)==float:
+     #            rec.x_total=round(rec.x_total)
+     #            rec.amount_total=round(rec.amount_total)
+
+     # def get_int1(self):
+     #    for rec in self:
+     #        if type(rec.x_total)==float:
+     #            rec.x_total=rec.x_total
+     #            rec.amount_total=rec.amount_total
+
+
+
      @api.multi
      def get_origin(self):
          for rec in self:
@@ -18,6 +34,7 @@ class AccountInvoice(models.Model):
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice.line'
     x_tcost = fields.Text(string="Cost", readonly=True)
+
 
 class CarWorkshop(models.Model):
     _inherit = 'car.workshop'
@@ -34,9 +51,9 @@ class CarWorkshop(models.Model):
                     amount_totall += line2.x_cost2 * line2.amount
                 records.amount_totals = amount_totall
 
-class AccountInvoice(models.Model):
-    _inherit = 'account.invoice'
-    x_total = fields.Float(string="Total Cost", readonly=True)
+# class AccountInvoice(models.Model):
+#     _inherit = 'account.invoice'
+
 
 class StockPicking(models.Model):
     _inherit = 'stock.picking'
