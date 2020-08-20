@@ -75,7 +75,7 @@
 <!--                </div>-->
                 <div class="col-xs-2" t-if="o.relation">
                     <strong>Make And Model:</strong>
-                    <p t-field="o.relation"/>
+                    <p t-field="o.relation.name.model_id"/>
                 </div>
 <!--                <div name="reference" class="col-xs-2" t-if="o.reference">-->
 <!--                    <strong>Reference:</strong>-->
