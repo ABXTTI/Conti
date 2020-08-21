@@ -9,7 +9,7 @@
     'author': 'AB',
     'maintainer': 'AB',
     'website': 'ab.com',
-    'depends': ['base', 'fleet', 'fleet_car_workshop', 'account', 'account_accountant'],
+    'depends': ['base','purchase', 'fleet', 'fleet_car_workshop', 'account', 'account_accountant'],
     'demo': [],
     'data': [
         'data/sequence.xml',
