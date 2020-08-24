@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <report id="report_short_invoice_sheet"
+        <report id="report_profit_loss_sheet"
                 string="PLAnalysis"
                 model="car.workshop"
                 report_type="qweb-html"
