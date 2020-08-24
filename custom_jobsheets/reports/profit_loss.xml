@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report id="report_short_invoice_sheet"
+                string="PLAnalysis"
+                model="car.workshop"
+                report_type="qweb-html"
+                name="custom_jobsheets.profit_loss"
+                file="custom_jobsheets.profit_loss"/>
+    </data>
+    <template id="profit_loss">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="row">
+                    <div class="col-xs-12 footer" style="height:30%">
+                        <img src="custom_jobsheets/static/src/img/footer.jpeg" width="100%" height="50px"/>
+                    </div>
+                    <div class="col-xs-12 header" style="height:30%">
+                        <img src="custom_jobsheets/static/src/img/header.jpeg" width="100%" height="100px"/>
+                    </div>
+                </div>
+                <div class="page">
+                    <div class="row text-center">
+                        <h3>Profit and Loss Analysis</h3>
+                    </div>
+                    <t t-set="total1" t-value="0"/>
+                    <t t-set="total2" t-value="0"/>
+                    <t t-set="total3" t-value="0"/>
+                    <div class="row" style="margin-top:10px;">
+                        <table class="table" width="100%" style="border-color:red">
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                       <th class="text-center" style="border:1px solid black" colspan="4">Labour/Service Cost </th>
+                                    </tr>
+                                    <tr border="1">
+                                        <th class="text-center" style="border:1px solid black">Service/Labour</th>
+                                        <th class="text-center" style="border:1px solid black">Price </th>
+                                        <th class="text-center" style="border:1px solid black"><span>Cost</span></th>
+                                        <th class="text-center" style="border:1px solid black">Profit/Loss</th>
+                                    </tr>
+                                </thead>
+                                   <t t-foreach="o.planned_works" t-as="l">
+                                    <tr>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="l.planned_work.name"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="l.work_cost"/>
+                                            <t t-set="total1" t-value="total1+l.work_cost"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="l.x_com"/>
+                                            <t t-set="total2" t-value="total2+l.x_com"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="l.work_cost-l.x_com"/>
+                                            <t t-set="total3" t-value="total3+(l.work_cost-l.x_com)"/>
+                                        </td>
+                                    </tr>
+                                   </t>
+                                    <tr>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <p>Total</p>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="total1"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="total2"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="total3"/>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <t t-set="total4" t-value="0"/>
+                    <t t-set="total5" t-value="0"/>
+                    <t t-set="total6" t-value="0"/>
+                    <div class="row" style="margin-top:10px;">
+                        <table class="table" width="100%" style="border-color:red">
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                       <th class="text-center" style="border:1px solid black" colspan="4">Material Used Cost </th>
+                                    </tr>
+                                    <tr border="1">
+                                        <th class="text-center" style="border:1px solid black">Product/Material</th>
+                                        <th class="text-center" style="border:1px solid black">Price </th>
+                                        <th class="text-center" style="border:1px solid black"><span>Cost</span></th>
+                                        <th class="text-center" style="border:1px solid black">Profit/Loss</th>
+                                    </tr>
+                                </thead>
+                                   <t t-foreach="o.materials_used" t-as="l">
+                                    <tr>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="l.material.name"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="l.x_com3"/>
+                                            <t t-set="total4" t-value="total4+l.x_com3"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="l.x_com2"/>
+                                            <t t-set="total5" t-value="total5+l.x_com2"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="l.x_com3-l.x_com2"/>
+                                            <t t-set="total6" t-value="total6+(l.x_com3-l.x_com2)"/>
+                                        </td>
+                                    </tr>
+                                   </t>
+                                    <tr>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <p>Total</p>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="total4"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="total5"/>
+                                        </td>
+                                        <td class="text-center" style="border:1px solid black">
+                                            <t t-esc="total6"/>
+                                        </td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <table class="table" width="100%" style="border-color:red">
+                            <tbody>
+                                <thead>
+                                    <tr border="1">
+                                        <th class="text-center" style="border:1px solid black">Grand Total</th>
+                                        <th class="text-center" style="border:1px solid black"><t t-esc="total1+total4"/> </th>
+                                        <th class="text-center" style="border:1px solid black"><span><t t-esc="total2+total5"/></span></th>
+                                        <th class="text-center" style="border:1px solid black"><t t-esc="total3+total6"/></th>
+                                    </tr>
+                                </thead>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
