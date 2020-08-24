@@ -155,7 +155,7 @@ class CarWorkshop(models.Model):
                 'quantity': 1,
                 'product_id': records.planned_work.id,
                 'invoice_id': inv_id.id,
-                'x_tcost':records.x_com
+                'x_tcost':records.time_spent * records.planned_work.standard_price
             }
             inv_line_obj.create(inv_line_data)
 
@@ -173,7 +173,7 @@ class CarWorkshop(models.Model):
                 'quantity': records.amount,
                 'product_id': records.material.id,
                 'invoice_id': inv_id.id,
-                'x_tcost':records.x_com2,
+                'x_tcost':records.amount * records.material.standard_price,
             }
             inv_line_obj.create(inv_line_data)
 
