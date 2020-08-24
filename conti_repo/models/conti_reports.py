@@ -40,15 +40,15 @@ class CarWorkshop(models.Model):
     _inherit = 'car.workshop'
     amount_totals = fields.Float(string="Total Cost", readonly=True, compute="amount_total2")
 
-    @api.depends('planned_works.x_com', 'materials_used.price', 'materials_used.amount')
+    @api.depends('planned_works.time_spent', 'materials_used.price', 'materials_used.amount')
     def amount_total2(self):
         for records in self:
             for hour in records:
                 amount_totall = 0.0
                 for line in hour.planned_works:
-                    amount_totall += line.x_com
+                    amount_totall += line.time_spent * line.planned_work.standard_price
                 for line2 in hour.materials_used:
-                    amount_totall += line2.x_cost2 * line2.amount
+                    amount_totall += line2.amount * line2.material.standard_price
                 records.amount_totals = amount_totall
 
 # class AccountInvoice(models.Model):
