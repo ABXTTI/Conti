@@ -8,7 +8,7 @@
     'author': 'SB',
     'maintainer': 'SB',
     'website': 'sb.com',
-    'depends': ['base','purchase', 'fleet', 'fleet_car_workshop', 'account', 'account_accountant'],
+    'depends': ['base','fleet', 'fleet_car_workshop',],
     'demo': [],
     'data': [
         'reports/job_sheet.xml'
