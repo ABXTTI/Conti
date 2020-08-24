@@ -9,7 +9,7 @@
     'author': 'AB',
     'maintainer': 'AB',
     'website': 'ab.com',
-    'depends': ['base', 'fleet', 'fleet_car_workshop', 'account', 'account_accountant','customize_invoice', 'stock','conti_repo'],
+    'depends': ['base', 'account', 'account_accountant'],
     'demo': [],
     'data': [
         'views/views.xml',
