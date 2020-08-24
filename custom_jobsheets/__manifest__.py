@@ -11,7 +11,9 @@
     'depends': ['base', 'fleet_car_workshop',],
     'demo': [],
     'data': [
-        'reports/job_sheet.xml'
+        'reports/job_sheet.xml',
+        'reports/profit_loss.xml',
+        'short_invoice.xml',
     ],
     'images': ['static/description/banner.jpg','static/src/img/header.jpeg','static/src/img/footer.jpeg',],
     'installable': True,
