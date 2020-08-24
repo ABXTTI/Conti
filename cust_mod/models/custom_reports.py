@@ -26,7 +26,7 @@ class PlannedWork (models.Model):
 
 
     x_cost = fields.Float(string="Internal Cost", compute="get_cost", store=True, readonly=True)
-    x_com = fields.Float(string="Total Cost", compute="get_multiply2", store=True, readonly=True)
+    x_com = fields.Float(string="Total Cost", compute="get_multiply2", store=True, readonly=True, default='0')
     x_com1 = fields.Float(string="Total Price", compute="get_multiply2", store=True, readonly=True)
 
     # x_cost = fields.Float(string="Internal Cost")
