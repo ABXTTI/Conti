@@ -22,7 +22,7 @@
         'reports/estimate_sheet.xml',
         'views/inherit_cost_product.xml',
            ],
-    'images': ['static/description/banner.jpg','static/src/img/header.jpeg','static/src/img/footer.jpeg','static/src/img/paid.png'],
+    'images': ['static/description/banner.jpg','static/src/img/header.jpeg','static/src/img/footer.png','static/src/img/paid.png'],
     'installable': True,
     'application': True,
     'auto_install': False,
