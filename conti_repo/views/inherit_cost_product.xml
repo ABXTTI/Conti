@@ -1,32 +1,94 @@
 <?xml version="1.0"?>
 <odoo>
- <record id="car_workshop_worksheet_inherit_formss" model="ir.ui.view">
-        <field name="name">car.workshop_worksheet_inherit_form2</field>
-        <field name="model">car.workshop</field>
-        <field name="inherit_id" ref="fleet_car_workshop.worksheet_form_view"/>
+    <record id="shee_inherit" model="ir.ui.view">
+        <field name="name">account.invoice_form</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="sale.account_invoice_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='planned_works']/tree/field[@name='work_cost']" position="before">
-                    <field name="x_cost"/>
-                    <field name="x_com"/>
+           <xpath expr="//page/group/group/field[@name='move_id']" position="after">
+                    <field name="relation"/>
+                    <field name="job_no"/>
             </xpath>
-            <xpath expr="//field[@name='works_done']/tree/field[@name='work_cost']" position="before">
-                    <field name="x_cost"/>
-                    <field name="x_com1"/>
+
+           <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="x_total"/>
+
+<!--                <button name="get_int" type="object" string="Round Off" class="oe_stat_button" icon="fa-calender">-->
+<!--                </button>-->
+<!--&lt;!&ndash;&lt;!&ndash;                <button name="get_int1" type="object" string="Float" class="oe_stat_button" icon="fa-calender">&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                </button>&ndash;&gt;-->
+
             </xpath>
+
         </field>
- </record>
-    <record id="car_workshop_worksheet_inherit_form1" model="ir.ui.view">
-        <field name="name">material.used_works_inherit_form</field>
-        <field name="model">material.used</field>
-        <field name="inherit_id" ref="fleet_car_workshop.material_used_tree_view"/>
+    </record>
+
+    <record id="account.invoice_form_inherit2" model="ir.ui.view">
+        <field name="name">custom.invoice.line.form_inherit1</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//tree/field[@name='price']" position="before">
-                    <field name="x_cost2" readonly="1"/>
-                    <field name="x_com2"/>
-            </xpath>
-            <xpath expr="//tree/field[@name='price']" position="after">
-                    <field name="x_com3"/>
+            <xpath expr="/form/sheet/notebook/page/field[@name='invoice_line_ids']/tree/field[@name='price_subtotal']" position="before">
+                <field name="x_tcost"/>
+
+
             </xpath>
         </field>
     </record>
+
+    <record id="car_workshop_worksheet_inherit_forms" model="ir.ui.view">
+        <field name="name">car.workshop_worksheet_inherit_form1</field>
+        <field name="model">car.workshop</field>
+        <field name="inherit_id" ref="fleet_car_workshop.worksheet_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/field[@name='amount_total']" position="before">
+
+                    <field name="amount_totals"/>
+
+            </xpath>
+        </field>
+    </record>
+
+<record id="stock_view_picking_form_inherit1" model="ir.ui.view">
+        <field name="name">stock.view_picking_form_inherit1</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+
+                    <field name="x_vehicle"/>
+                    <field name="x_job_ref"/>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_view_move_form_inherit1" model="ir.ui.view">
+        <field name="name">stock.view_move_form_inherit1</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+
+                    <field name="x_vehicle"/>
+                    <field name="x_job_ref"/>
+
+            </xpath>
+        </field>
+    </record>
+    <record id="stock_view_move_tree_inherit1" model="ir.ui.view">
+        <field name="name">stock.view_move_tree_inherit1</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+
+                    <field name="x_vehicle"/>
+                    <field name="x_job_ref"/>
+
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
