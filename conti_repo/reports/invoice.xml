@@ -5,7 +5,7 @@
                 string="invoice"
                 model="account.invoice"
                 report_type="qweb-html"
-                name="conti_repo.report_invoice"
-                file="conti_repo.report_invoice"/>
+                name="conti_repo.report_invoice1"
+                file="conti_repo.report_invoice1"/>
     </data>
 </odoo>
