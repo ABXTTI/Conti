@@ -1,28 +1,36 @@
 <?xml version="1.0"?>
 <odoo>
-<!--    <record id="sheet_inherit" model="ir.ui.view">-->
-<!--        <field name="name">account.invoice_form</field>-->
+    <record id="invoice_line_form_inherit_discount_amount" model="ir.ui.view">
+        <field name="name">invoice.line_form_inherit_discount_amount</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="/form/sheet/notebook/page/field[@name='invoice_line_ids']/tree/field[@name='discount']" position="after">
+                <field name="x_discount_amount"/>
+            </xpath>
+        </field>
+    </record>
+
+<!--    <record id="invoice.line_form_inherit_discount_amount" model="ir.ui.view">-->
+<!--        <field name="name">custom.invoice_line_form_inherit_discount_amount</field>-->
 <!--        <field name="model">account.invoice</field>-->
-<!--        <field name="inherit_id" ref="sale.account_invoice_form"/>-->
+<!--        <field name="inherit_id" ref="account.invoice_"/>-->
 <!--        <field name="arch" type="xml">-->
-<!--             <xpath expr="//field[@name='x_total']" position="after">-->
-
-
-<!--                <button name="get_int" type="object" string="Round Off" class="oe_stat_button" icon="fa-calender">-->
-<!--                </button>-->
-<!--             </xpath>-->
+<!--            <xpath expr="/form/sheet/notebook/page/field[@name='invoice_line_ids']/tree/field[@name='discount']" position="after">-->
+<!--                <field name="x_discount_amount"/>-->
+<!--            </xpath>-->
 <!--        </field>-->
 <!--    </record>-->
 
-    <record id="company_form_inherit1" model="ir.ui.view">
-        <field name="name">res.company_form_inherit1</field>
-        <field name="model">res.company</field>
-        <field name="inherit_id" ref="base.view_company_form"/>
-        <field name="arch" type="xml">
-             <xpath expr="//field[@name='partner_id']" position="before">
-                 <field name="round_invoice"/>
-             </xpath>
-        </field>
-    </record>
+<!--    <record id="company_form_inherit1" model="ir.ui.view">-->
+<!--        <field name="name">res.company_form_inherit1</field>-->
+<!--        <field name="model">account.invoice</field>-->
+<!--        <field name="inherit_id" ref="account.invoice_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--             <xpath expr="//field[@name='partner_id']" position="before">-->
+<!--                 <field name="round_invoice"/>-->
+<!--             </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
 
 </odoo>
